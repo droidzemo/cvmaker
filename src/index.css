@@ -216,6 +216,27 @@ button {
   .form-group.full-width {
     grid-column: auto;
   }
+
+  /* Mobile Preview Adjustments */
+  .preview-pane {
+    padding: 1rem;
+    justify-content: flex-start;
+    /* Align start to allow scrolling */
+    overflow-x: auto;
+    /* Enable horizontal scroll for wide CV */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .preview-toolbar {
+    position: sticky;
+    /* Sticky instead of fixed to not cover editor */
+    top: 0;
+    right: auto;
+    width: 100%;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+  }
 }
 
 @media print {
