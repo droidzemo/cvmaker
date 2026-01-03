@@ -1,0 +1,149 @@
+/* Template Styles */
+.cv-document {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    padding: 40px;
+    /* Internal padding */
+    box-shadow: var(--shadow-md);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    margin: 0 auto;
+    /* Center in preview */
+}
+
+/* Standard Template Specifics */
+.standard-template .cv-header {
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.standard-template .cv-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+
+.standard-template .cv-title {
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.cv-contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon-sm {
+    width: 14px;
+    height: 14px;
+}
+
+.cv-summary {
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.cv-section {
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.experience-item,
+.education-item {
+    margin-bottom: 15px;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+}
+
+.item-role,
+.item-degree {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.item-company,
+.item-school {
+    font-weight: 500;
+    color: var(--color-text-light);
+}
+
+.item-period {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: var(--color-bg);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+@media print {
+    @page {
+        margin: 0;
+        size: auto;
+    }
+
+    body,
+    .preview-pane,
+    .app-container {
+        background: white;
+        height: auto;
+        overflow: visible;
+    }
+
+    .preview-toolbar,
+    .editor-pane,
+    .app-header {
+        display: none !important;
+    }
+
+    .cv-document {
+        box-shadow: none;
+        margin: 0;
+        width: 100%;
+        min-height: auto;
+        padding: 20mm;
+        /* Use page margin simulation or actual content margin */
+    }
+}
