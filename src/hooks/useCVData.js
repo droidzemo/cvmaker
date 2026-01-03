@@ -89,6 +89,8 @@ export function useCVData() {
         updateEducation,
         removeEducation,
         updateSkills,
+        activeTemplate: cv.activeTemplate || 'standard',
+        setTemplate: (t) => setCV(prev => ({ ...prev, activeTemplate: t })),
         resetData: () => setCV(initialCV)
     };
 }

@@ -15,13 +15,14 @@ function App() {
     addEducation,
     updateEducation,
     removeEducation,
-    updateSkills
+    updateSkills,
+    setTemplate
   } = useCVData();
 
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>LeanCV</h1>
+        <h1>CV Maker</h1>
         <a href="https://github.com/yourusername/leancv" target="_blank" rel="noreferrer" style={{ fontSize: '0.875rem', color: 'var(--color-primary)' }}>GitHub</a>
       </header>
       <SplitPane>
@@ -36,7 +37,7 @@ function App() {
           removeEducation={removeEducation}
           updateSkills={updateSkills}
         />
-        <CVPreview cv={cv} />
+        <CVPreview cv={cv} setTemplate={setTemplate} />
       </SplitPane>
     </div>
   )
