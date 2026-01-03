@@ -2,7 +2,7 @@ name: Deploy LeanCV to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "master"]
   workflow_dispatch:
 
 permissions:
