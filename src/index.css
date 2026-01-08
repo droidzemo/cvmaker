@@ -269,14 +269,97 @@ button {
   top: 80px;
   right: 20px;
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  gap: 20px;
   z-index: 100;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 20px;
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  width: 300px;
+}
+
+.toolbar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toolbar-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  letter-spacing: 0.05em;
+}
+
+.toolbar-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toolbar-select {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  background: var(--color-white);
+  cursor: pointer;
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 1.4rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn-icon:hover {
+  background: var(--color-white);
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.btn-icon.btn-danger {
+  color: var(--color-danger);
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+}
+
+.button-row .btn-sm {
+  flex: 1;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+}
+
+.action-buttons .btn-primary {
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  font-weight: 600;
 }
 
 .template-switcher {
@@ -288,16 +371,18 @@ button {
 }
 
 .btn-sm {
-  padding: 5px 10px;
-  font-size: 0.8rem;
+  padding: 8px 12px;
+  font-size: 0.85rem;
   background: transparent;
   color: var(--color-text-light);
-  border-radius: 4px;
+  border-radius: 6px;
+  transition: all 0.2s;
 }
 
 .btn-sm:hover {
   background: rgba(0, 0, 0, 0.05);
   color: var(--color-text);
+  border-color: var(--color-text);
 }
 
 .btn-sm.active {

@@ -16,7 +16,14 @@ function App() {
     updateEducation,
     removeEducation,
     updateSkills,
-    setTemplate
+    setTemplate,
+    profiles,
+    activeProfileId,
+    createProfile,
+    switchProfile,
+    deleteProfile,
+    exportCV,
+    importCV
   } = useCVData();
 
   return (
@@ -37,7 +44,17 @@ function App() {
           removeEducation={removeEducation}
           updateSkills={updateSkills}
         />
-        <CVPreview cv={cv} setTemplate={setTemplate} />
+        <CVPreview
+          cv={cv}
+          setTemplate={setTemplate}
+          profiles={profiles}
+          activeProfileId={activeProfileId}
+          createProfile={createProfile}
+          switchProfile={switchProfile}
+          deleteProfile={deleteProfile}
+          exportCV={exportCV}
+          importCV={importCV}
+        />
       </SplitPane>
     </div>
   )
