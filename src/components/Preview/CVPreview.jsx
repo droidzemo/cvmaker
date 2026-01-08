@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { TemplateStandard } from './TemplateStandard';
 import { TemplateModern } from './TemplateModern';
 import { TemplateMinimal } from './TemplateMinimal';
@@ -15,6 +15,7 @@ export function CVPreview({
     importCV
 }) {
     const fileInputRef = useRef(null);
+    const [showToolbar, setShowToolbar] = useState(true);
 
     const handlePrint = () => {
         window.print();
@@ -45,7 +46,14 @@ export function CVPreview({
 
     return (
         <div className="preview-pane">
-            <div className="preview-toolbar">
+            <button
+                className={`toolbar-toggle ${!showToolbar ? 'collapsed' : ''}`}
+                onClick={() => setShowToolbar(!showToolbar)}
+                title={showToolbar ? "Hide Toolbar" : "Show Toolbar"}
+            >
+                {showToolbar ? '→' : '⚙'}
+            </button>
+            <div className={`preview-toolbar ${!showToolbar ? 'hidden' : ''}`}>
                 <div className="toolbar-group">
                     <label className="toolbar-label">CV Profile</label>
                     <div className="toolbar-section">
