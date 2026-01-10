@@ -151,6 +151,8 @@ textarea {
   font-family: inherit;
   font-size: 0.875rem;
   background: var(--color-bg);
+  color: var(--color-text);
+  /* Fix: Ensure text is visible in dark mode */
   transition: border-color 0.2s;
 }
 
@@ -319,9 +321,11 @@ button {
   width: 40px;
   height: 40px;
   background: var(--color-primary);
-  color: white;
+  color: var(--color-white);
+  /* Fix: Use variable for contrast in dark mode */
   border-radius: 50%;
   box-shadow: var(--shadow-md);
+
   justify-content: center;
   font-size: 1.25rem;
   transition: all 0.3s ease;
