@@ -1,4 +1,5 @@
 :root {
+  /* Light Theme (Default) */
   --font-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   --color-bg: #f8fafc;
   --color-text: #1e293b;
@@ -11,6 +12,27 @@
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   --radius: 0.5rem;
+}
+
+[data-theme='dark'] {
+  --color-bg: #0f172a;
+  /* Slate 900 */
+  --color-text: #f1f5f9;
+  /* Slate 100 */
+  --color-text-light: #94a3b8;
+  /* Slate 400 */
+  --color-primary: #f8fafc;
+  /* Slate 50 - Inverted for dark mode headers */
+  --color-accent: #60a5fa;
+  /* Blue 400 - Brighter for dark bg */
+  --color-border: #334155;
+  /* Slate 700 */
+  --color-white: #1e293b;
+  /* Slate 800 - Used for cards/containers */
+  --color-danger: #f87171;
+  /* Red 400 */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
 }
 
 * {
