@@ -338,6 +338,8 @@ button {
 
 [data-theme='dark'] .toolbar-toggle {
   color: #ffffff;
+  background-color: #334155;
+  /* Fix: Dark background for white arrow */
 }
 
 .toolbar-toggle.collapsed {
