@@ -63,7 +63,7 @@ function App() {
             {theme === 'light' ? '🌙' : '☀️'}
           </button>
         </div>
-        <a href="https://github.com/yourusername/leancv" target="_blank" rel="noreferrer" style={{ fontSize: '0.875rem', color: 'var(--color-primary)' }}>GitHub</a>
+        <a href="https://github.com/nigamelastic" target="_blank" rel="noreferrer" style={{ fontSize: '0.875rem', color: 'var(--color-primary)' }}>GitHub</a>
       </header>
       <SplitPane>
         <Editor
