@@ -2,7 +2,7 @@ name: Deploy LeanCV to Pages
 
 on:
   push:
-    branches: ["main", "master", "dev"]
+    branches: ["main", "master", "dev"] # Trigger on these three
   workflow_dispatch:
 
 permissions:
@@ -11,12 +11,14 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  # Using the branch name in the group prevents different branches 
+  # from canceling each other's deployments.
+  group: "pages-${{ github.ref_name }}"
   cancel-in-progress: true
 
 jobs:
   build:
-    if: github.ref_name == 'main' || github.ref_name == 'master'
+    # Removed the 'if' so all branches in the 'on' section can build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,7 +38,6 @@ jobs:
           path: ./dist
 
   deploy:
-    if: github.ref_name == 'main' || github.ref_name == 'master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
