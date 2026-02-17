@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.ref_name == 'main' || github.ref_name == 'master'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,7 +36,7 @@ jobs:
           path: ./dist
 
   deploy:
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    if: github.ref_name == 'main' || github.ref_name == 'master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

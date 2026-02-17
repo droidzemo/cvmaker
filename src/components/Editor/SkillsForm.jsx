@@ -1,4 +1,11 @@
 export function SkillsForm({ data, update }) {
+    const handleStringChange = (e) => {
+        const val = e.target.value;
+        // We update the parent with the array derived from this string
+        const arr = val ? val.split(',').map(s => s) : [];
+        update(arr);
+    };
+
     const skillsString = data.join(', ');
 
     return (
@@ -9,7 +16,7 @@ export function SkillsForm({ data, update }) {
                 <textarea
                     id="skills"
                     value={skillsString}
-                    onChange={(e) => update(e.target.value.split(','))}
+                    onChange={handleStringChange}
                     placeholder="React, JavaScript, CSS, HTML"
                     rows={3}
                 />
