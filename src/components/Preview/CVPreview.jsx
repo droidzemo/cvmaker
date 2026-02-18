@@ -2,6 +2,9 @@ import { useRef, useState } from 'react';
 import { TemplateStandard } from './TemplateStandard';
 import { TemplateModern } from './TemplateModern';
 import { TemplateMinimal } from './TemplateMinimal';
+import { TemplateElegant } from './TemplateElegant';
+import { TemplateTech } from './TemplateTech';
+import { TemplateSidebar } from './TemplateSidebar';
 
 export function CVPreview({
     cv,
@@ -39,7 +42,10 @@ export function CVPreview({
     const TemplateMap = {
         standard: TemplateStandard,
         modern: TemplateModern,
-        minimal: TemplateMinimal
+        minimal: TemplateMinimal,
+        elegant: TemplateElegant,
+        tech: TemplateTech,
+        sidebar: TemplateSidebar
     };
 
     const ActiveComponent = TemplateMap[cv.activeTemplate || 'standard'];
@@ -84,6 +90,9 @@ export function CVPreview({
                             <option value="standard">Standard</option>
                             <option value="modern">Modern</option>
                             <option value="minimal">Minimal</option>
+                            <option value="elegant">Elegant</option>
+                            <option value="tech">Tech</option>
+                            <option value="sidebar">Sidebar</option>
                         </select>
                     </div>
                 </div>

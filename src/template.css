@@ -359,3 +359,298 @@
         color: white !important;
     }
 }
+/* Elegant Template */
+.elegant-template {
+    font-family: 'Georgia', serif;
+    padding: 60px !important;
+    background: #fff;
+    color: #1a202c;
+}
+
+.elegant-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.elegant-name {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #1e293b; /* Navy */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.elegant-title {
+    font-size: 1.1rem;
+    color: #94785c; /* Gold-ish */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.elegant-contact {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 10px 0;
+}
+
+.elegant-section {
+    margin-bottom: 30px;
+}
+
+.elegant-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #94785c;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.elegant-summary {
+    font-style: italic;
+    text-align: center;
+    color: #475569;
+}
+
+.elegant-item {
+    margin-bottom: 20px;
+}
+
+.elegant-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+}
+
+.elegant-item .item-role, .elegant-item .item-degree {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.elegant-item .item-company, .elegant-item .item-school {
+    color: #94785c;
+    font-weight: 500;
+}
+
+.elegant-skills {
+    text-align: center;
+    letter-spacing: 1px;
+    color: #475569;
+}
+
+/* Tech Template */
+.tech-template {
+    font-family: 'Monaco', 'Consolas', monospace;
+    padding: 0 !important;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+.tech-header {
+    background: #1e293b;
+    padding: 40px;
+    border-bottom: 4px solid #3b82f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.tech-name {
+    font-size: 2rem;
+    color: #60a5fa;
+    margin-bottom: 5px;
+}
+
+.tech-title {
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.tech-contact {
+    font-size: 0.8rem;
+    text-align: right;
+}
+
+.tech-contact .contact-item {
+    justify-content: flex-end;
+    margin-bottom: 4px;
+}
+
+.tech-body {
+    padding: 40px;
+}
+
+.tech-section {
+    margin-bottom: 30px;
+}
+
+.tech-section-title {
+    font-size: 1.1rem;
+    color: #3b82f6;
+    margin-bottom: 15px;
+    border-left: 4px solid #3b82f6;
+    padding-left: 10px;
+}
+
+.tech-experience-item {
+    margin-bottom: 20px;
+    background: rgba(30, 41, 59, 0.5);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.tech-item-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.tech-item-header .item-role {
+    color: #f1f5f9;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.tech-education-item {
+    margin-bottom: 15px;
+}
+
+.tech-skill-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-skill-tag {
+    background: #334155;
+    color: #60a5fa;
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-size: 0.85rem;
+    border: 1px solid #475569;
+}
+
+/* Sidebar Template */
+.sidebar-template {
+    display: flex;
+    padding: 0 !important;
+    min-height: 297mm;
+}
+
+.sidebar-left {
+    width: 30%;
+    background: #f1f5f9;
+    padding: 40px 25px;
+    border-right: 1px solid #e2e8f0;
+}
+
+.sidebar-section-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #475569;
+    border-bottom: 2px solid #cbd5e1;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.sidebar-contact-info .contact-item {
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+.sidebar-skill-tag {
+    background: white;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    border: 1px solid #e2e8f0;
+}
+
+.sidebar-education-item {
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.sidebar-education-item .item-degree {
+    font-weight: 700;
+}
+
+.sidebar-main {
+    flex: 1;
+    padding: 40px;
+    background: white;
+}
+
+.sidebar-header {
+    margin-bottom: 40px;
+}
+
+.sidebar-name {
+    font-size: 2.5rem;
+    color: #0f172a;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.sidebar-title {
+    font-size: 1.25rem;
+    color: #3b82f6;
+    margin-bottom: 20px;
+}
+
+.main-section-title {
+    font-size: 1.2rem;
+    color: #0f172a;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.main-experience-item {
+    margin-bottom: 25px;
+}
+
+/* Print Overrides */
+@media print {
+    .tech-template {
+        background: white !important;
+        color: black !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .tech-header {
+        background: #f1f5f9 !important;
+        border-bottom-color: #3b82f6 !important;
+    }
+    .tech-name { color: #2563eb !important; }
+    .tech-experience-item { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+    .tech-skill-tag { background: #f1f5f9 !important; border-color: #cbd5e1 !important; color: #1e40af !important; }
+
+    .sidebar-template {
+        min-height: 100vh;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .sidebar-left {
+        background-color: #f1f5f9 !important;
+    }
+}
