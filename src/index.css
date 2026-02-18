@@ -163,6 +163,18 @@ textarea:focus {
   background: var(--color-white);
 }
 
+input.invalid,
+textarea.invalid {
+  border-color: var(--color-danger);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.error-hint {
+  color: var(--color-danger);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
 .item-card {
   background: var(--color-bg);
   padding: 1rem;
@@ -212,10 +224,12 @@ button {
 
 .btn-delete.icon-only {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0.25rem;
+  right: 0.25rem;
   margin-top: 0;
-  padding: 0.4rem;
+  padding: 0;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: transparent;
   transition: all 0.2s ease;
@@ -469,6 +483,7 @@ button {
 .button-row {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .button-row .btn-sm {

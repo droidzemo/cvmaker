@@ -16,7 +16,9 @@ export function PersonalForm({ data, update }) {
                         value={data.fullName}
                         onChange={handleChange}
                         placeholder="e.g. John Doe"
+                        className={!data.fullName ? 'invalid' : ''}
                     />
+                    {!data.fullName && <span className="error-hint">Required for export</span>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="title">Job Title</label>

@@ -5,8 +5,9 @@ export function EducationForm({ data, add, update, remove }) {
         <div className="form-section">
             <h3>Education</h3>
             {data.length === 0 && (
-                <div className="empty-state">
+                <div className="empty-state" onClick={add} style={{ cursor: 'pointer' }}>
                     <p>No education history yet. Every detail counts!</p>
+                    <button className="btn-sm" style={{ marginTop: '0.5rem', color: 'var(--color-accent)' }}>+ Add your first degree</button>
                 </div>
             )}
             {data.map((item) => (

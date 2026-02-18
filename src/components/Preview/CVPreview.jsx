@@ -35,13 +35,21 @@ export function CVPreview({
     }, []);
 
     const handlePrint = () => {
+        if (!cv.personal.fullName) {
+            showMessage("Please enter your name before printing.");
+            return;
+        }
         window.print();
     };
 
     const handleExport = useCallback(() => {
+        if (!cv.personal.fullName) {
+            showMessage("Please enter your name before exporting.");
+            return;
+        }
         exportCV();
         showMessage("JSON Exported successfully!");
-    }, [exportCV, showMessage]);
+    }, [cv.personal.fullName, exportCV, showMessage]);
 
     const handleImportClick = () => {
         fileInputRef.current.click();
@@ -172,7 +180,7 @@ export function CVPreview({
                 </div>
             </div>
             <div className="cv-container">
-                <ActiveComponent data={cv} />
+                <ActiveComponent key={cv.activeTemplate || 'standard'} data={cv} />
             </div>
         </div>
     );

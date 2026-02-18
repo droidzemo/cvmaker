@@ -355,6 +355,8 @@
         margin: 0;
         width: 100%;
         min-height: auto;
+        animation: none !important;
+        transform: none !important;
         /* Clean reset for printing */
     }
 

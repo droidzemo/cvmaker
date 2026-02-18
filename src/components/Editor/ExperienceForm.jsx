@@ -5,8 +5,9 @@ export function ExperienceForm({ data, add, update, remove }) {
         <div className="form-section">
             <h3>Experience</h3>
             {data.length === 0 && (
-                <div className="empty-state">
+                <div className="empty-state" onClick={add} style={{ cursor: 'pointer' }}>
                     <p>No experience added yet. Share your journey!</p>
+                    <button className="btn-sm" style={{ marginTop: '0.5rem', color: 'var(--color-accent)' }}>+ Add your first role</button>
                 </div>
             )}
             {data.map((item) => (
