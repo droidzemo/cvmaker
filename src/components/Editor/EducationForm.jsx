@@ -4,12 +4,18 @@ export function EducationForm({ data, add, update, remove }) {
     return (
         <div className="form-section">
             <h3>Education</h3>
+            {data.length === 0 && (
+                <div className="empty-state">
+                    <p>No education history yet. Every detail counts!</p>
+                </div>
+            )}
             {data.map((item) => (
                 <div key={item.id} className="item-card">
                     <div className="form-grid">
                         <div className="form-group">
-                            <label>Degree</label>
+                            <label htmlFor={`degree-${item.id}`}>Degree</label>
                             <input
+                                id={`degree-${item.id}`}
                                 type="text"
                                 value={item.degree}
                                 onChange={(e) => update(item.id, 'degree', e.target.value)}
@@ -17,8 +23,9 @@ export function EducationForm({ data, add, update, remove }) {
                             />
                         </div>
                         <div className="form-group">
-                            <label>School</label>
+                            <label htmlFor={`school-${item.id}`}>School</label>
                             <input
+                                id={`school-${item.id}`}
                                 type="text"
                                 value={item.school}
                                 onChange={(e) => update(item.id, 'school', e.target.value)}
@@ -26,8 +33,9 @@ export function EducationForm({ data, add, update, remove }) {
                             />
                         </div>
                         <div className="form-group">
-                            <label>Period</label>
+                            <label htmlFor={`edu-period-${item.id}`}>Period</label>
                             <input
+                                id={`edu-period-${item.id}`}
                                 type="text"
                                 value={item.period}
                                 onChange={(e) => update(item.id, 'period', e.target.value)}
@@ -35,8 +43,13 @@ export function EducationForm({ data, add, update, remove }) {
                             />
                         </div>
                     </div>
-                    <button className="btn-delete" onClick={() => remove(item.id)}>
-                        <IconTrash /> Remove
+                    <button
+                        className="btn-delete icon-only"
+                        onClick={() => remove(item.id)}
+                        aria-label="Remove Education"
+                        title="Remove Education"
+                    >
+                        <IconTrash />
                     </button>
                 </div>
             ))}

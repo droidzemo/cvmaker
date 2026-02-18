@@ -1,22 +1,4 @@
 export function SkillsForm({ data, update }) {
-    const handleChange = (e) => {
-        // Split by comma and trim
-        const skillsArray = e.target.value.split(',').map(s => s.trim());
-        // Or just store the string if we want strict control?
-        // Let's pass the raw array back, or we handle string conversion here
-        // But data is array. We need to convert array to string for input
-    };
-
-    // Better approach: User types in textarea separated by commas
-    const handleStringChange = (e) => {
-        const val = e.target.value;
-        // We update the parent with the array derived from this string
-        const arr = val ? val.split(',').map(s => s) : []; // Keep spaces? Trim on render normally
-        // Let's actually trim immediately but keep empty strings for typing flow?
-        // No, better to update simply.
-        update(arr);
-    };
-
     const skillsString = data.join(', ');
 
     return (

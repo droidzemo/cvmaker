@@ -210,6 +210,26 @@ button {
   opacity: 0.8;
 }
 
+.btn-delete.icon-only {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  margin-top: 0;
+  padding: 0.4rem;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-delete.icon-only:hover {
+  background: var(--color-danger);
+  color: white;
+  transform: scale(1.1);
+}
+
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-white);
@@ -218,6 +238,17 @@ button {
 
 .btn-primary:hover {
   opacity: 0.9;
+}
+
+.empty-state {
+  padding: 1.5rem;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  text-align: center;
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-bottom: 1rem;
 }
 
 /* Responsive */
@@ -499,4 +530,38 @@ button {
 [data-theme='dark'] .btn-sm.active {
   background: #334155;
   color: white;
+}
+
+/* Notification Toast */
+.notification-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  font-size: 0.875rem;
+  font-weight: 500;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@media print {
+  .notification-toast {
+    display: none !important;
+  }
 }
