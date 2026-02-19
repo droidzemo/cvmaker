@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { initialCV } from '../utils/initialData';
 
 const STORAGE_KEY = 'leancv-data-v2';
@@ -25,26 +25,28 @@ export function useCVData() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     }, [state]);
 
-    const activeProfile = state.profiles.find(p => p.id === state.activeProfileId) || state.profiles[0];
-    const cv = activeProfile.cv;
+    const cv = useMemo(() => {
+        const activeProfile = state.profiles.find(p => p.id === state.activeProfileId) || state.profiles[0];
+        return activeProfile.cv;
+    }, [state.profiles, state.activeProfileId]);
 
-    const updateCV = (updater) => {
+    const updateCV = useCallback((updater) => {
         setState(prev => ({
             ...prev,
             profiles: prev.profiles.map(p =>
                 p.id === prev.activeProfileId ? { ...p, cv: updater(p.cv) } : p
             )
         }));
-    };
+    }, []);
 
-    const updatePersonal = (field, value) => {
+    const updatePersonal = useCallback((field, value) => {
         updateCV(prevCV => ({
             ...prevCV,
             personal: { ...prevCV.personal, [field]: value }
         }));
-    };
+    }, [updateCV]);
 
-    const addExperience = () => {
+    const addExperience = useCallback(() => {
         updateCV(prevCV => ({
             ...prevCV,
             experience: [
@@ -52,25 +54,25 @@ export function useCVData() {
                 { id: crypto.randomUUID(), role: 'New Role', company: 'New Company', period: 'Period', description: 'Description' }
             ]
         }));
-    };
+    }, [updateCV]);
 
-    const updateExperience = (id, field, value) => {
+    const updateExperience = useCallback((id, field, value) => {
         updateCV(prevCV => ({
             ...prevCV,
             experience: prevCV.experience.map(item =>
                 item.id === id ? { ...item, [field]: value } : item
             )
         }));
-    };
+    }, [updateCV]);
 
-    const removeExperience = (id) => {
+    const removeExperience = useCallback((id) => {
         updateCV(prevCV => ({
             ...prevCV,
             experience: prevCV.experience.filter(item => item.id !== id)
         }));
-    };
+    }, [updateCV]);
 
-    const addEducation = () => {
+    const addEducation = useCallback(() => {
         updateCV(prevCV => ({
             ...prevCV,
             education: [
@@ -78,51 +80,51 @@ export function useCVData() {
                 { id: crypto.randomUUID(), degree: 'New Degree', school: 'New School', period: 'Period' }
             ]
         }));
-    };
+    }, [updateCV]);
 
-    const updateEducation = (id, field, value) => {
+    const updateEducation = useCallback((id, field, value) => {
         updateCV(prevCV => ({
             ...prevCV,
             education: prevCV.education.map(item =>
                 item.id === id ? { ...item, [field]: value } : item
             )
         }));
-    };
+    }, [updateCV]);
 
-    const removeEducation = (id) => {
+    const removeEducation = useCallback((id) => {
         updateCV(prevCV => ({
             ...prevCV,
             education: prevCV.education.filter(item => item.id !== id)
         }));
-    };
+    }, [updateCV]);
 
-    const updateSkills = (value) => {
+    const updateSkills = useCallback((value) => {
         updateCV(prevCV => ({
             ...prevCV,
             skills: value
         }));
-    };
+    }, [updateCV]);
 
-    const setTemplate = (t) => {
+    const setTemplate = useCallback((t) => {
         updateCV(prevCV => ({ ...prevCV, activeTemplate: t }));
-    };
+    }, [updateCV]);
 
-    const createProfile = (name) => {
+    const createProfile = useCallback((name) => {
         const newId = crypto.randomUUID();
         setState(prev => ({
             ...prev,
             activeProfileId: newId,
             profiles: [...prev.profiles, { id: newId, name: name || 'New Profile', cv: initialCV }]
         }));
-    };
+    }, []);
 
-    const switchProfile = (id) => {
+    const switchProfile = useCallback((id) => {
         setState(prev => ({ ...prev, activeProfileId: id }));
-    };
+    }, []);
 
-    const deleteProfile = (id) => {
-        if (state.profiles.length <= 1) return;
+    const deleteProfile = useCallback((id) => {
         setState(prev => {
+            if (prev.profiles.length <= 1) return prev;
             const newProfiles = prev.profiles.filter(p => p.id !== id);
             return {
                 ...prev,
@@ -130,9 +132,9 @@ export function useCVData() {
                 activeProfileId: prev.activeProfileId === id ? newProfiles[0].id : prev.activeProfileId
             };
         });
-    };
+    }, []);
 
-    const exportCV = () => {
+    const exportCV = useCallback(() => {
         const dataStr = JSON.stringify(cv, null, 2);
         const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
         const exportFileDefaultName = `${cv.personal.fullName || 'cv'}-data.json`;
@@ -141,9 +143,9 @@ export function useCVData() {
         linkElement.setAttribute('href', dataUri);
         linkElement.setAttribute('download', exportFileDefaultName);
         linkElement.click();
-    };
+    }, [cv]);
 
-    const importCV = (file) => {
+    const importCV = useCallback((file) => {
         const reader = new FileReader();
         reader.onload = (e) => {
             try {
@@ -155,7 +157,7 @@ export function useCVData() {
             }
         };
         reader.readAsText(file);
-    };
+    }, [updateCV]);
 
     return {
         cv,
@@ -175,6 +177,6 @@ export function useCVData() {
         deleteProfile,
         exportCV,
         importCV,
-        resetData: () => updateCV(() => initialCV)
+        resetData: useCallback(() => updateCV(() => initialCV), [updateCV])
     };
 }

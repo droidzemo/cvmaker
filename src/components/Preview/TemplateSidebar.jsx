@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { IconMail, IconPhone, IconMapPin, IconGlobe } from '../Icons';
 
-export function TemplateSidebar({ data }) {
+export const TemplateSidebar = memo(function TemplateSidebar({ data }) {
     const { personal, experience, education, skills, awards, projects } = data;
 
     return (
@@ -114,4 +115,4 @@ export function TemplateSidebar({ data }) {
             </div>
         </div>
     );
-}
+});

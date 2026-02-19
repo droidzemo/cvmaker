@@ -6,6 +6,15 @@ import { TemplateElegant } from './TemplateElegant';
 import { TemplateTech } from './TemplateTech';
 import { TemplateSidebar } from './TemplateSidebar';
 
+const TemplateMap = {
+    standard: TemplateStandard,
+    modern: TemplateModern,
+    minimal: TemplateMinimal,
+    elegant: TemplateElegant,
+    tech: TemplateTech,
+    sidebar: TemplateSidebar
+};
+
 export function CVPreview({
     cv,
     setTemplate,
@@ -37,15 +46,6 @@ export function CVPreview({
     const handleCreateProfile = () => {
         const name = prompt("Enter profile name:");
         if (name) createProfile(name);
-    };
-
-    const TemplateMap = {
-        standard: TemplateStandard,
-        modern: TemplateModern,
-        minimal: TemplateMinimal,
-        elegant: TemplateElegant,
-        tech: TemplateTech,
-        sidebar: TemplateSidebar
     };
 
     const ActiveComponent = TemplateMap[cv.activeTemplate || 'standard'];

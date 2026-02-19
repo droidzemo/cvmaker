@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { IconPlus, IconTrash } from '../Icons';
 
-export function EducationForm({ data, add, update, remove }) {
+export const EducationForm = memo(function EducationForm({ data, add, update, remove }) {
     return (
         <div className="form-section">
             <h3>Education</h3>
@@ -45,4 +46,4 @@ export function EducationForm({ data, add, update, remove }) {
             </button>
         </div>
     );
-}
+});
