@@ -56,6 +56,7 @@ export function CVPreview({
                 className={`toolbar-toggle ${!showToolbar ? 'collapsed' : ''}`}
                 onClick={() => setShowToolbar(!showToolbar)}
                 title={showToolbar ? "Hide Toolbar" : "Show Toolbar"}
+                aria-label={showToolbar ? "Hide Toolbar" : "Show Toolbar"}
             >
                 {showToolbar ? '→' : '⚙'}
             </button>
@@ -72,9 +73,23 @@ export function CVPreview({
                                 <option key={p.id} value={p.id}>{p.name}</option>
                             ))}
                         </select>
-                        <button className="btn-icon" onClick={handleCreateProfile} title="New Profile">+</button>
+                        <button
+                            className="btn-icon"
+                            onClick={handleCreateProfile}
+                            title="New Profile"
+                            aria-label="New Profile"
+                        >
+                            +
+                        </button>
                         {profiles.length > 1 && (
-                            <button className="btn-icon btn-danger" onClick={() => deleteProfile(activeProfileId)} title="Delete Profile">×</button>
+                            <button
+                                className="btn-icon btn-danger"
+                                onClick={() => deleteProfile(activeProfileId)}
+                                title="Delete Profile"
+                                aria-label="Delete Profile"
+                            >
+                                ×
+                            </button>
                         )}
                     </div>
                 </div>
