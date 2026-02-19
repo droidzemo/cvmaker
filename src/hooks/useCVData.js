@@ -22,7 +22,11 @@ export function useCVData() {
     });
 
     useEffect(() => {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        // Debounce localStorage sync to reduce JSON.stringify overhead during rapid typing
+        const timeoutId = setTimeout(() => {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }, 1000);
+        return () => clearTimeout(timeoutId);
     }, [state]);
 
     const cv = useMemo(() => {

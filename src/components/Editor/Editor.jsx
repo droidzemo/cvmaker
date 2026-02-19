@@ -1,9 +1,10 @@
+import { memo } from 'react';
 import { PersonalForm } from './PersonalForm';
 import { ExperienceForm } from './ExperienceForm';
 import { EducationForm } from './EducationForm';
 import { SkillsForm } from './SkillsForm';
 
-export function Editor({
+export const Editor = memo(function Editor({
     cv,
     updatePersonal,
     addExperience,
@@ -35,4 +36,4 @@ export function Editor({
             <SkillsForm data={cv.skills} update={updateSkills} />
         </div>
     );
-}
+});
