@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { IconPlus, IconTrash } from '../Icons';
 
-export function ExperienceForm({ data, add, update, remove }) {
+export const ExperienceForm = memo(function ExperienceForm({ data, add, update, remove }) {
     return (
         <div className="form-section">
             <h3>Experience</h3>
@@ -62,4 +63,4 @@ export function ExperienceForm({ data, add, update, remove }) {
             </button>
         </div>
     );
-}
+});

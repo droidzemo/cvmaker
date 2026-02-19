@@ -1,4 +1,6 @@
-export function PersonalForm({ data, update }) {
+import { memo } from 'react';
+
+export const PersonalForm = memo(function PersonalForm({ data, update }) {
     const handleChange = (e) => {
         update(e.target.name, e.target.value);
     };
@@ -87,4 +89,4 @@ export function PersonalForm({ data, update }) {
             </div>
         </div>
     );
-}
+});

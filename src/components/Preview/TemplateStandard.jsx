@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { IconMail, IconPhone, IconMapPin, IconGlobe } from '../Icons';
 
-export function TemplateStandard({ data }) {
+export const TemplateStandard = memo(function TemplateStandard({ data }) {
     const { personal, experience, education, skills } = data;
 
     return (
@@ -99,4 +100,4 @@ export function TemplateStandard({ data }) {
             </div>
         </div>
     );
-}
+});
