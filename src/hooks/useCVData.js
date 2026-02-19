@@ -143,12 +143,42 @@ export function useCVData() {
         linkElement.click();
     };
 
+    /**
+     * Security: Validates the structure of imported CV data
+     * to prevent application crashes and malformed state.
+     */
+    const validateCV = (data) => {
+        return (
+            data &&
+            typeof data === 'object' &&
+            data.personal && typeof data.personal === 'object' &&
+            Array.isArray(data.experience) &&
+            Array.isArray(data.education) &&
+            Array.isArray(data.skills)
+        );
+    };
+
     const importCV = (file) => {
+        // Security: Limit file size to 1MB to prevent DoS
+        if (file.size > 1024 * 1024) {
+            alert("File too large. Maximum size is 1MB.");
+            return;
+        }
+
         const reader = new FileReader();
         reader.onload = (e) => {
             try {
-                const importedData = JSON.parse(e.target.result);
-                updateCV(() => importedData);
+                // Security: Use reviver to strip prototype-polluting keys
+                const importedData = JSON.parse(e.target.result, (key, value) => {
+                    if (key === '__proto__' || key === 'constructor') return undefined;
+                    return value;
+                });
+
+                if (validateCV(importedData)) {
+                    updateCV(() => importedData);
+                } else {
+                    alert("Invalid CV data structure");
+                }
             } catch (err) {
                 console.error("Failed to import CV:", err);
                 alert("Invalid JSON file");
