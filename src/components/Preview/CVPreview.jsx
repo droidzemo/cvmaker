@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, memo } from 'react';
 import { TemplateStandard } from './TemplateStandard';
 import { TemplateModern } from './TemplateModern';
 import { TemplateMinimal } from './TemplateMinimal';
@@ -15,7 +15,7 @@ const TemplateMap = {
     sidebar: TemplateSidebar
 };
 
-export function CVPreview({
+export const CVPreview = memo(function CVPreview({
     cv,
     setTemplate,
     profiles,
@@ -135,4 +135,4 @@ export function CVPreview({
             </div>
         </div>
     );
-}
+});
