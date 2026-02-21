@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { initialCV } from '../utils/initialData';
+import { sanitizeData, validateCVStructure } from '../utils/security';
 
 const STORAGE_KEY = 'leancv-data-v2';
 const LEGACY_STORAGE_KEY = 'leancv-data';
@@ -150,11 +151,25 @@ export function useCVData() {
     }, [cv]);
 
     const importCV = useCallback((file) => {
+        // Security: Limit file size to 1MB to prevent DoS
+        const MAX_FILE_SIZE = 1024 * 1024; // 1MB
+        if (file.size > MAX_FILE_SIZE) {
+            alert("File is too large. Maximum size is 1MB.");
+            return;
+        }
+
         const reader = new FileReader();
         reader.onload = (e) => {
             try {
                 const importedData = JSON.parse(e.target.result);
-                updateCV(() => importedData);
+
+                // Security: Sanitize against prototype pollution and validate structure
+                const sanitizedData = sanitizeData(importedData);
+                if (validateCVStructure(sanitizedData)) {
+                    updateCV(() => sanitizedData);
+                } else {
+                    alert("Invalid CV data structure.");
+                }
             } catch (err) {
                 console.error("Failed to import CV:", err);
                 alert("Invalid JSON file");
