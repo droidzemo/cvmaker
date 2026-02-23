@@ -6,6 +6,38 @@ export const TemplateTech = memo(function TemplateTech({ data }) {
 
     return (
         <div className="cv-document tech-template">
+            <style>
+                {`
+                @media print {
+                    .tech-template {
+                        background: #0f172a !important;
+                        color: #e2e8f0 !important;
+                        -webkit-print-color-adjust: exact !important;
+                        print-color-adjust: exact !important;
+                    }
+                    .tech-header {
+                        background: #1e293b !important;
+                        border-bottom: 4px solid #3b82f6 !important;
+                    }
+                    .tech-name {
+                        color: #60a5fa !important;
+                    }
+                    .tech-section-title {
+                        color: #3b82f6 !important;
+                        border-left: 4px solid #3b82f6 !important;
+                    }
+                    .tech-experience-item {
+                        background: rgba(30, 41, 59, 0.5) !important;
+                        border: none !important;
+                    }
+                    .tech-skill-tag {
+                        background: #334155 !important;
+                        color: #60a5fa !important;
+                        border: 1px solid #475569 !important;
+                    }
+                }
+                `}
+            </style>
             <header className="tech-header">
                 <div className="tech-header-main">
                     <h1 className="tech-name">{personal.fullName}</h1>
