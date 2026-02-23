@@ -1,4 +1,6 @@
-export function SkillsForm({ data, update }) {
+import { memo } from 'react';
+
+export const SkillsForm = memo(function SkillsForm({ data, update }) {
     const handleStringChange = (e) => {
         const val = e.target.value;
         // We update the parent with the array derived from this string
@@ -24,4 +26,4 @@ export function SkillsForm({ data, update }) {
             </div>
         </div>
     );
-}
+});

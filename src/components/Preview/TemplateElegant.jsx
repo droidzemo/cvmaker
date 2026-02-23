@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { IconMail, IconPhone, IconMapPin, IconGlobe } from '../Icons';
 
-export function TemplateElegant({ data }) {
+export const TemplateElegant = memo(function TemplateElegant({ data }) {
     const { personal, experience, education, skills, awards, projects } = data;
 
     return (
@@ -121,4 +122,4 @@ export function TemplateElegant({ data }) {
             </div>
         </div>
     );
-}
+});

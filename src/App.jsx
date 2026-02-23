@@ -59,6 +59,7 @@ function App() {
               cursor: 'pointer'
             }}
             title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+            aria-label={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
           >
             {theme === 'light' ? '🌙' : '☀️'}
           </button>

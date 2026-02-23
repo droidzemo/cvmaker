@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { IconMail, IconPhone, IconMapPin, IconGlobe } from '../Icons';
 
-export function TemplateMinimal({ data }) {
+export const TemplateMinimal = memo(function TemplateMinimal({ data }) {
     const { personal, experience, education, skills } = data;
 
     return (
@@ -67,4 +68,4 @@ export function TemplateMinimal({ data }) {
             </div>
         </div>
     );
-}
+});
